@@ -1,6 +1,6 @@
 export const RoutePathEnum = {
-  Home: 'home',
-  Buttons: 'buttons',
+  Publisher: 'publisher',
+  Viewer: 'viewer',
 } as const;
 
 export type RoutePath = (typeof RoutePathEnum)[keyof typeof RoutePathEnum];
@@ -11,6 +11,6 @@ export interface NavItem {
 }
 
 export const mainNavItems = new Map<RoutePath, NavItem>([
-  ['home', { path: '/', title: 'Home' }],
-  ['buttons', { path: '/buttons', title: 'Buttons' }],
+  ['publisher', { path: '/', title: 'Publisher' }],
+  ['viewer', { path: '/viewer', title: 'Viewer' }],
 ]);
