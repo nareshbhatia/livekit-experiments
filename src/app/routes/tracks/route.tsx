@@ -16,7 +16,7 @@ const { livekitRoom, livekitSandboxId } = config;
 // Create the TokenSource
 const tokenSource = TokenSource.sandboxTokenServer(livekitSandboxId);
 
-export function Dashboard() {
+export function TracksPage() {
   const session = useSession(tokenSource, { roomName: livekitRoom });
   console.log('session', session);
 

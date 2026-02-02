@@ -1,5 +1,5 @@
 export const RoutePathEnum = {
-  Dashboard: 'dashboard',
+  Tracks: 'tracks',
   Camera: 'camera',
 } as const;
 
@@ -11,6 +11,6 @@ export interface NavItem {
 }
 
 export const mainNavItems = new Map<RoutePath, NavItem>([
-  ['dashboard', { path: '/', title: 'Dashboard' }],
+  ['tracks', { path: '/', title: 'Tracks' }],
   ['camera', { path: '/camera', title: 'Camera' }],
 ]);
