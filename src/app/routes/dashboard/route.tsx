@@ -41,18 +41,23 @@ export function Dashboard() {
 
 export function CameraTracks() {
   const room = useRoomContext();
+
+  // Get active camera tracks
   const cameraTrackRefs = useTracks([Track.Source.Camera], {
     onlySubscribed: true,
   });
+  const activeCameraTrackRefs = cameraTrackRefs.filter(
+    (trackRef) => trackRef.publication && !trackRef.publication.isMuted,
+  );
 
   return (
     <div className="flex flex-col p-4">
       <h1 className="text-lg font-bold">{room.name}</h1>
       <p className="text-sm text-muted-foreground">
-        Tracks: {cameraTrackRefs.length}
+        Tracks: {activeCameraTrackRefs.length}
       </p>
       <div className="flex flex-col gap-2 mt-4">
-        {cameraTrackRefs.map((trackRef) => (
+        {activeCameraTrackRefs.map((trackRef) => (
           <VideoTrack key={trackRef.participant.identity} trackRef={trackRef} />
         ))}
       </div>
