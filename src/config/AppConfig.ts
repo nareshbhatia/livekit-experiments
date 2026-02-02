@@ -1,3 +1,11 @@
+import { setLogLevel as setLiveKitLogLevel, LogLevel } from 'livekit-client';
+
+/**
+ * Set log level for LiveKit early in the application
+ */
+setLiveKitLogLevel(LogLevel.silent);
+console.log('[Config] LiveKit Log level set to error');
+
 /**
  * Application configuration
  * Reads from Vite environment variables
