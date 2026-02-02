@@ -1,7 +1,7 @@
 import { RootLayout } from './app/root';
+import { CameraPage } from './app/routes/camera/route';
+import { Dashboard } from './app/routes/dashboard/route';
 import { NotFoundPage } from './app/routes/not-found/route';
-import { VideoPublisherPage } from './app/routes/video-publisher/route';
-import { VideoViewerPage } from './app/routes/video-viewer/route';
 import { mainNavItems } from './config/RouteConfig';
 
 import type { RouteObject } from 'react-router';
@@ -12,11 +12,11 @@ export const routes: RouteObject[] = [
     children: [
       {
         path: '/',
-        element: <VideoPublisherPage />,
+        element: <Dashboard />,
       },
       {
-        path: mainNavItems.get('viewer')!.path,
-        element: <VideoViewerPage />,
+        path: mainNavItems.get('camera')!.path,
+        element: <CameraPage />,
       },
     ],
   },
