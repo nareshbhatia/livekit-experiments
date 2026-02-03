@@ -16,15 +16,14 @@ const tokenSource = TokenSource.sandboxTokenServer(livekitSandboxId);
 
 export function MeetPage() {
   const session = useSession(tokenSource, { roomName: livekitRoom });
-  console.log('session', session);
 
   // Start the session
   useEffect(() => {
-    console.log('Starting dashboard session...');
+    console.log('Starting meet session...');
     session.start();
 
     return () => {
-      console.log('Ending dashboard session...');
+      console.log('Ending meet session...');
       session.end();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps

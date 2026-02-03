@@ -18,7 +18,6 @@ const tokenSource = TokenSource.sandboxTokenServer(livekitSandboxId);
 
 export function CameraPage() {
   const session = useSession(tokenSource, { roomName: livekitRoom });
-  console.log('session', session);
 
   // Start the session
   useEffect(() => {
