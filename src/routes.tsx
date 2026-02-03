@@ -1,5 +1,6 @@
 import { RootLayout } from './app/root';
 import { CameraPage } from './app/routes/camera/route';
+import { MeetPage } from './app/routes/meet/route';
 import { NotFoundPage } from './app/routes/not-found/route';
 import { TracksPage } from './app/routes/tracks/route';
 import { mainNavItems } from './config/RouteConfig';
@@ -12,6 +13,10 @@ export const routes: RouteObject[] = [
     children: [
       {
         path: '/',
+        element: <MeetPage />,
+      },
+      {
+        path: mainNavItems.get('tracks')!.path,
         element: <TracksPage />,
       },
       {

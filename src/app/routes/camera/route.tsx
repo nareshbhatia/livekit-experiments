@@ -42,14 +42,21 @@ export function CameraPage() {
 export function CameraComponent() {
   const room = useRoomContext();
   const [cameraEnabled, setCameraEnabled] = useState(false);
+  const [microphoneEnabled, setMicrophoneEnabled] = useState(false);
 
   useEffect(() => {
     room.localParticipant.setCameraEnabled(cameraEnabled);
   }, [room, cameraEnabled]);
 
+  useEffect(() => {
+    room.localParticipant.setMicrophoneEnabled(microphoneEnabled);
+  }, [room, microphoneEnabled]);
+
   return (
     <div className="p-4 space-y-4">
       <h1 className="text-lg font-bold">{room.name}</h1>
+
+      {/* Camera Toggle */}
       <div className="flex items-center gap-2">
         <Label htmlFor="camera-toggle">Camera</Label>
         <Switch
@@ -57,6 +64,18 @@ export function CameraComponent() {
           checked={cameraEnabled}
           onCheckedChange={(checked) => {
             setCameraEnabled(checked);
+          }}
+        />
+      </div>
+
+      {/* Microphone Toggle */}
+      <div className="flex items-center gap-2">
+        <Label htmlFor="microphone-toggle">Microphone</Label>
+        <Switch
+          id="microphone-toggle"
+          checked={microphoneEnabled}
+          onCheckedChange={(checked) => {
+            setMicrophoneEnabled(checked);
           }}
         />
       </div>
