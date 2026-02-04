@@ -22,7 +22,7 @@ export function TracksPage() {
   // Start the session
   useEffect(() => {
     console.log('Starting tracks session...');
-    session.start();
+    session.start({ tracks: { microphone: { enabled: false } } });
 
     return () => {
       console.log('Ending tracks session...');

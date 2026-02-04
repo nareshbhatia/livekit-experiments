@@ -20,7 +20,7 @@ export function MeetPage() {
   // Start the session
   useEffect(() => {
     console.log('Starting meet session...');
-    session.start();
+    session.start({ tracks: { microphone: { enabled: false } } });
 
     return () => {
       console.log('Ending meet session...');
