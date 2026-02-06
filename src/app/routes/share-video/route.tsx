@@ -46,6 +46,17 @@ export function ShareVideoPage() {
   );
 }
 
+/**
+ * Share video from a local file to the LiveKit room.
+ * 1. User selects a file
+ * 2. We create a blob URL
+ * 3. We show a preview in a <video> element
+ * 4. Simultaneously (on playing), we capture the <video> element’s output with captureStream()
+ * 5. We take the resulting video track, and publish it to the room as a camera track
+ *
+ * - Blob URL and stream are cleaned up when the file changes or the component unmounts
+ * - We unpublish the track when the stream changes or the component unmounts
+ */
 export function ShareVideoComponent() {
   const room = useRoomContext();
 
